@@ -149,11 +149,11 @@ END AS day_classification,
 
      -- Time of day grouping
     CASE
-        WHEN HOUR(v.RecordDate2 + INTERVAL 2 HOURS) BETWEEN 0 AND 5 THEN '1.Late Night'
-        WHEN HOUR(v.RecordDate2 + INTERVAL 2 HOURS) BETWEEN 6 AND 11 THEN '2.Morning'
-        WHEN HOUR(v.RecordDate2 + INTERVAL 2 HOURS) BETWEEN 12 AND 16 THEN '3.Afternoon'
-        WHEN HOUR(v.RecordDate2 + INTERVAL 2 HOURS) BETWEEN 17 AND 20 THEN '4.Evening Peak'
-        ELSE 'Night'
+        WHEN HOUR(v.RecordDate2 + INTERVAL 2 HOURS) BETWEEN 0 AND 5 THEN '5.Late Night'
+        WHEN HOUR(v.RecordDate2 + INTERVAL 2 HOURS) BETWEEN 6 AND 11 THEN '1.Morning'
+        WHEN HOUR(v.RecordDate2 + INTERVAL 2 HOURS) BETWEEN 12 AND 16 THEN '2.Afternoon'
+        WHEN HOUR(v.RecordDate2 + INTERVAL 2 HOURS) BETWEEN 17 AND 20 THEN '3.Evening Peak'
+        ELSE '4.Night'
     END AS time_classification,
 
     -- Session length bucket
