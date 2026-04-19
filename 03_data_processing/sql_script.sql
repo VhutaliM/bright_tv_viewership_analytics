@@ -147,12 +147,12 @@ SELECT
     ELSE 'Weekday'
 END AS day_classification,
 
-    -- Time of day grouping
+     -- Time of day grouping
     CASE
-        WHEN HOUR(v.RecordDate2 + INTERVAL 2 HOURS) BETWEEN 0 AND 5 THEN 'Late Night'
-        WHEN HOUR(v.RecordDate2 + INTERVAL 2 HOURS) BETWEEN 6 AND 11 THEN 'Morning'
-        WHEN HOUR(v.RecordDate2 + INTERVAL 2 HOURS) BETWEEN 12 AND 16 THEN 'Afternoon'
-        WHEN HOUR(v.RecordDate2 + INTERVAL 2 HOURS) BETWEEN 17 AND 20 THEN 'Evening Peak'
+        WHEN HOUR(v.RecordDate2 + INTERVAL 2 HOURS) BETWEEN 0 AND 5 THEN '1.Late Night'
+        WHEN HOUR(v.RecordDate2 + INTERVAL 2 HOURS) BETWEEN 6 AND 11 THEN '2.Morning'
+        WHEN HOUR(v.RecordDate2 + INTERVAL 2 HOURS) BETWEEN 12 AND 16 THEN '3.Afternoon'
+        WHEN HOUR(v.RecordDate2 + INTERVAL 2 HOURS) BETWEEN 17 AND 20 THEN '4.Evening Peak'
         ELSE 'Night'
     END AS time_classification,
 
@@ -181,14 +181,14 @@ END AS day_classification,
         ELSE '60+ min'
     END AS session_length_bucket,
 
-    -- Age groups
+-- Age groups
  CASE
-    WHEN u.Age BETWEEN 0 AND 12 THEN 'Kids'
-    WHEN u.Age BETWEEN 13 AND 17 THEN 'Teens'
-    WHEN u.Age BETWEEN 18 AND 24 THEN 'Young Adults'
-    WHEN u.Age BETWEEN 25 AND 34 THEN 'Adults (25-34)'
-    WHEN u.Age BETWEEN 35 AND 54 THEN 'Mid-Age Adults'
-    WHEN u.Age >= 55 THEN 'Seniors'
+    WHEN u.Age BETWEEN 0 AND 12 THEN '1.Kids'
+    WHEN u.Age BETWEEN 13 AND 17 THEN '2.Teens'
+    WHEN u.Age BETWEEN 18 AND 24 THEN '3.Young Adults'
+    WHEN u.Age BETWEEN 25 AND 34 THEN '4.Adults (25-34)'
+    WHEN u.Age BETWEEN 35 AND 54 THEN '5.Mid-Age Adults'
+    WHEN u.Age >= 55 THEN '6.Seniors'
     ELSE 'Unknown'
 END AS age_group
 
