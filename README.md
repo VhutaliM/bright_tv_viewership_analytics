@@ -147,3 +147,13 @@ BrightTV aims to grow its subscription base. To achieve this, the business needs
 ---
 
 ## 📁 Project Structure
+- 01_project_description_and_raw_data/
+- 02_project_planning/
+- 03_data_processing/
+- 04_analysis_and_insights/
+- 05_project_presentation/
+
+
+
+
+
